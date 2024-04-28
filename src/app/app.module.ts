@@ -43,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
     BrowserAnimationsModule,
   ],
+
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
