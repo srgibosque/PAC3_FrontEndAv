@@ -1,8 +1,50 @@
 <h2>Post List</h2>
-<button (click)="createPost()">ADD</button>
+<button (click)="createPost()" mat-fab extended color="primary">
+  <mat-icon>add</mat-icon>
+  Add post
+</button>
 
-<table>
-  <thead>
+<table mat-table [dataSource]="posts">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let post">{{post.postId}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let post">{{post.title}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let post">{{post.description}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="num_likes">
+    <th mat-header-cell *matHeaderCellDef>Likes</th>
+    <td mat-cell *matCellDef="let post">{{post.num_likes}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="num_dislikes">
+    <th mat-header-cell *matHeaderCellDef>Dislikes</th>
+    <td mat-cell *matCellDef="let post">{{post.num_dislikes}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let post">
+      <button (click)="updatePost(post.postId)" mat-icon-button matTooltip="Basic">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="deletePost(post.postId)" mat-icon-button matTooltip="Basic">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  <!-- <thead>
     <tr>
       <th>ID</th>
       <th>TITLE</th>
@@ -25,5 +67,5 @@
         <button (click)="deletePost(post.postId)">DELETE</button>
       </td>
     </tr>
-  </tbody>
+  </tbody> -->
 </table>
