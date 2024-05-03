@@ -1,19 +1,53 @@
-<p>header works!</p>
-
 <!-- NO AUTH REQUIRED -->
-<div *ngIf="showNoAuthSection">
-  <button (click)="dashboard()">Dashboard</button>
-  <button (click)="home()">Home</button>
-  <button (click)="login()">Login</button>
-  <button (click)="register()">Register</button>
-</div>
+<mat-toolbar *ngIf="showNoAuthSection">
+  <span>PAC 3 Front-End</span>
+  <span class="spacer"></span>
+
+  <button (click)="dashboard()" mat-icon-button>
+    <mat-icon>monitoring</mat-icon>
+  </button>
+
+  <button (click)="home()" mat-icon-button>
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button (click)="login()" mat-icon-button>
+    <mat-icon>login</mat-icon>
+  </button>
+
+  <button (click)="register()" mat-icon-button>
+    <mat-icon>how_to_reg</mat-icon>
+  </button>
+  
+</mat-toolbar>
 
 <!-- AUTH REQUIRED -->
-<div *ngIf="showAuthSection">
-  <button (click)="dashboard()">Dashboard</button>
-  <button (click)="home()">Home</button>
-  <button (click)="adminPosts()">Admin posts</button>
-  <button (click)="adminCategories()">Admin categories</button>
-  <button (click)="profile()">Profile</button>
-  <button (click)="logout()">Logout</button>
-</div>
+<mat-toolbar *ngIf="showAuthSection">
+  <span>PAC 3 Front-End</span>
+  <span class="spacer"></span>
+
+  <button (click)="dashboard()" mat-icon-button>
+    <mat-icon>monitoring</mat-icon>
+  </button>
+
+  <button (click)="home()" mat-icon-button>
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button (click)="adminPosts()" mat-icon-button>
+    <mat-icon>storage</mat-icon>
+  </button>
+
+  <button (click)="adminCategories()" mat-icon-button>
+    <mat-icon>category</mat-icon>
+  </button>
+
+  <button (click)="profile()" mat-icon-button>
+    <mat-icon>person</mat-icon>
+  </button>
+
+  <button (click)="logout()" mat-icon-button>
+    <mat-icon>logout</mat-icon>
+  </button>
+
+</mat-toolbar>

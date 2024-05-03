@@ -17,6 +17,9 @@ import { HeaderComponent } from './Shared/Components/header/header.component';
 import { AuthInterceptorService } from './Shared/Services/auth-interceptor.service';
 import { UserModule } from './User/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -42,6 +45,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       logOnly: environment.production,
     }),
     BrowserAnimationsModule,
+    MatToolbarModule, 
+    MatButtonModule, 
+    MatIconModule,
   ],
 
   providers: [
