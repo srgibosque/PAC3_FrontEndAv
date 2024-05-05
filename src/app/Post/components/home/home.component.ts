@@ -14,7 +14,6 @@ import { PostService } from '../../services/post.service';
 })
 export class HomeComponent {
   posts: PostDTO[];
-  showButtons: boolean;
 
   private userId: string;
 
@@ -25,17 +24,13 @@ export class HomeComponent {
   ) {
     this.userId = '';
     this.posts = new Array<PostDTO>();
-    this.showButtons = false;
 
     this.store.select('auth').subscribe((auth) => {
-      this.showButtons = false;
 
       if (auth.credentials.user_id) {
         this.userId = auth.credentials.user_id;
       }
-      if (auth.credentials.access_token) {
-        this.showButtons = true;
-      }
+
     });
 
     this.store.select('posts').subscribe((posts) => {

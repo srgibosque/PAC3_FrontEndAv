@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormatDatePipe } from '../Shared/Pipes/format-date.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { PostsListComponent } from './components/posts-list/posts-list.component';
@@ -14,17 +13,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { SharedModule } from '../Shared/shared.module';
 
 @NgModule({
   declarations: [
     PostsListComponent,
     PostFormComponent,
     HomeComponent,
-    FormatDatePipe,
     DashboardComponent,
   ],
   imports: [
-    CommonModule, 
+    CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -34,6 +33,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatTableModule,
     MatCardModule,
     MatChipsModule,
+    SharedModule,
   ],
 })
 export class PostModule {}

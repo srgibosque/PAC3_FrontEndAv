@@ -4,26 +4,3 @@
   justify-content: center;
   gap: 16px;
 }
-
-.card {
-  max-width: 400px;
-}
-
-.card-content{
-  padding: 16px;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-
-.chip-container{
-  display: flex;
-  gap: 8px;
-}
-
-.likes-container{
-  display: flex;
-  gap: 16px;
-}
