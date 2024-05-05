@@ -1,31 +1,38 @@
-<p>List All posts</p>
+<div class="content">
+  <mat-card *ngFor="let post of posts" class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ post.title }}</mat-card-title>
+      <mat-card-subtitle>Published by {{ post.userAlias }} on {{ post.publication_date | formatDate: 3 }}</mat-card-subtitle>
+    </mat-card-header>
+    <img 
+      mat-card-image 
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg" 
+      alt="Photo of a Shiba Inu"
+    >
+    <mat-card-content class="card-content">
+      <p>{{ post.description }}</p>
 
-<div style="text-align: center">
-  <div *ngFor="let post of posts" class="card">
-    <div class="container">
-      <div>
-        <span
-          *ngFor="let category of post.categories"
-          class="badge"
-          [ngStyle]="{ 'background-color': category.css_color }"
-        >
-          {{ category.title }}
-        </span>
+      <div class="likes-container">
+        <p><strong>Likes:</strong> {{ post.num_likes }} </p>
+        <p><strong>Dislikes:</strong> {{ post.num_dislikes }}</p>
       </div>
-    </div>
 
-    <h4>
-      <b>Title: {{ post.title }}</b>
-    </h4>
-    <p>Description: {{ post.description }}</p>
-    <p>Likes: {{ post.num_likes }}</p>
-    <p>Dislikes: {{ post.num_dislikes }}</p>
-    <p>Publication date: {{ post.publication_date | formatDate: 3 }}</p>
-    <p>Published by: {{ post.userAlias }}</p>
+      <div class="chip-container">
+        <mat-chip-set 
+        *ngFor="let category of post.categories"
+        aria-label="categories">
+          <mat-chip [ngStyle]="{ 'background-color': category.css_color }">
+            {{ category.title }}
+          </mat-chip>
+        </mat-chip-set>
+      </div>
+    </mat-card-content>
+  
 
-    <div *ngIf="showButtons">
-      <button (click)="like(post.postId)">Like</button>
-      <button (click)="dislike(post.postId)">Dislike</button>
-    </div>
-  </div>
+    <mat-card-actions *ngIf="showButtons">
+      <button mat-button>Like</button>
+      <button mat-button>Dislike</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
