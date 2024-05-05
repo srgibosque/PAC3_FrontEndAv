@@ -163,6 +163,8 @@ export class PostFormComponent implements OnInit {
   private createPost(): void {
     if (this.userId) {
       this.post.userId = this.userId;
+      this.post.num_likes = 0;
+      this.post.num_dislikes = 0;
 
       this.store.dispatch(PostsAction.createPost({ post: this.post }));
     }
